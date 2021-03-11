@@ -12,5 +12,7 @@
         push: yes
         repository: paomb/example-app
         source: build
-
-    - name: d
+    - name: Create a Deployment by reading the definition from a local file
+      community.kubernetes.k8s:
+        state: present
+        src: /opt/project/deploy2.yaml
