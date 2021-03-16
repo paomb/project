@@ -9,7 +9,7 @@
     - name: Build an image and push it to a repo
       community.docker.docker_image:
         build:
-          path: ./dockerimage
+          path: /opt/project/dockerimage
           network: host
         name: paomb/example-app
         tag: v1

@@ -1,9 +1,14 @@
-FROM node:12
-WORKDIR /usr/src/app
-COPY package*.json ./
+FROM  amazonlinux
 
-RUN npm install
-COPY . .
-EXPOSE 8080
-CMD [ "node", "server.js" ]
+RUN yum -y update
+RUN yum -y install httpd
+RUN yum -y install php
 
+
+COPY ./index.php /var/www/html/index.php
+
+
+
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+
+EXPOSE 80

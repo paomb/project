@@ -26,7 +26,7 @@ spec:
       - name: myapp
         image: paomb/example-app:v1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 ---
 
 kind: Service
@@ -41,8 +41,8 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 80
+      targetPort: 80
 
 
 
