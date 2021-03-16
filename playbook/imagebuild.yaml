@@ -2,6 +2,10 @@
 - hosts: localhost
   gather_facts: no
   tasks:
+    - name: Install dependences
+      shell: ansible-galaxy collection install community.docker && ansible-galaxy collection install community.kubernetes
+   
+
     - name: Build an image and push it to a repo
       community.docker.docker_image:
         build:
@@ -15,4 +19,4 @@
     - name: Create a Deployment by reading the definition from a local file
       community.kubernetes.k8s:
         state: present
-        src: /opt/project/deploy2.yaml
+        src: /opt/project/k8/deploy.yaml

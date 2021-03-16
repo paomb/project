@@ -1,3 +1,10 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nodejs-app
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,7 +24,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: paomb/nodejs-app
+        image: paomb/example-app:v1
         ports:
         - containerPort: 8080
 ---
@@ -34,7 +41,7 @@ spec:
   ports:
     - name: http
       protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 8080
 
 
